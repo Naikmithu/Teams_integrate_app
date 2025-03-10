@@ -49,7 +49,7 @@ st.subheader("6. Updates to This Policy")
 st.write(
     "We may update this Privacy Policy periodically. The latest version will always be available at:"
 )
-st.write("🔗 [Privacy Policy URL](https://teamsintegrateapp-pezbuu9ar2vgjp64dgsbdm.streamlit.app/privacy)")
+st.write("🔗 [Privacy Policy URL](https://www.freeprivacypolicy.com/live/b26100dd-e98b-4e8d-8a58-5bca3f80536a)")
 
 # Footer Note
 st.write("---")
