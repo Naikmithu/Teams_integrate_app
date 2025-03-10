@@ -3,22 +3,6 @@ import streamlit as st
 # Set Streamlit page config
 st.set_page_config(page_title="Teams App", page_icon=":zap:", layout="wide")
 
-# Enable embedding in iframes
-st.markdown(
-    """
-    <style>
-        iframe {display: block;}
-    </style>
-    <script>
-        document.domain = "streamlit.io";
-        if (window !== window.parent) {
-            console.log("App is running inside an iframe.");
-        }
-    </script>
-    """,
-    unsafe_allow_html=True,
-)
-
 # Function to display Privacy Policy
 def show_privacy_policy():
     st.title("Privacy Policy")
@@ -49,7 +33,7 @@ def show_privacy_policy():
 
     st.subheader("6. Updates to This Policy")
     st.write("The latest version of this policy is available at:")
-    st.write("[Insert Your Privacy Policy URL]")
+    st.write("https://teamsintegrateapp-pezbuu9ar2vgjp64dgsbdm.streamlit.app/privacy")
 
 # Function to display Terms of Use
 def show_terms_of_use():
@@ -74,6 +58,9 @@ def show_terms_of_use():
     st.subheader("5. Contact Information")
     st.write("For questions, contact us at: **[Your Email]**")
 
+    st.write("The latest version of this policy is available at:")
+    st.write("https://teamsintegrateapp-pezbuu9ar2vgjp64dgsbdm.streamlit.app/terms")
+
 # Function to display Main App
 def show_main_app():
     st.title("Microsoft Teams Test App")
@@ -88,16 +75,13 @@ def show_main_app():
     st.write("- Dynamic response")
     st.write("- Basic UI")
 
-# Get query parameters
-query_params = st.query_params  # Updated to the new recommended method
+# Sidebar Navigation
+st.sidebar.title("Navigation")
+page = st.sidebar.radio("Go to", ["Home", "Privacy Policy", "Terms of Use"])
 
-# Route based on query parameters
-if "view" in query_params:
-    if query_params["view"] == "privacy":
-        show_privacy_policy()
-    elif query_params["view"] == "terms":
-        show_terms_of_use()
-    else:
-        show_main_app()
+if page == "Privacy Policy":
+    show_privacy_policy()
+elif page == "Terms of Use":
+    show_terms_of_use()
 else:
     show_main_app()
