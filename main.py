@@ -3,14 +3,30 @@ import streamlit as st
 # Set Streamlit page config
 st.set_page_config(page_title="Teams App", page_icon=":zap:", layout="wide")
 
+# Enable embedding in iframes
+st.markdown(
+    """
+    <style>
+        iframe {display: block;}
+    </style>
+    <script>
+        document.domain = "streamlit.io";
+        if (window !== window.parent) {
+            console.log("App is running inside an iframe.");
+        }
+    </script>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Function to display Privacy Policy
 def show_privacy_policy():
     st.title("Privacy Policy")
     st.write("### **Privacy Policy for Teams Integrate App**")
     st.write("**Effective Date:** [Insert Date]  \n**Last Updated:** [Insert Date]")
-    
+
     st.write("Welcome to **Teams Integrate App**. This privacy policy describes how we handle your data.")
-    
+
     st.subheader("1. Scope")
     st.write("This policy applies to **Teams Integrate App** and any related services we provide.")
 
@@ -39,9 +55,9 @@ def show_privacy_policy():
 def show_terms_of_use():
     st.title("Terms of Use")
     st.write("### **Terms of Use for Teams Integrate App**")
-    
+
     st.write("By using this application, you agree to the following terms:")
-    
+
     st.subheader("1. Acceptance of Terms")
     st.write("By accessing the app, you agree to comply with these terms.")
 
@@ -61,13 +77,12 @@ def show_terms_of_use():
 # Function to display Main App
 def show_main_app():
     st.title("Microsoft Teams Test App")
-    
     st.write("This is a dummy app for testing Teams integration.")
-    
-    name = st.text_input("Enter your name as:")
+
+    name = st.text_input("Enter your name:")
     if st.button("Submit"):
         st.success(f"Hello, {name}! This app is running inside Teams.")
-    
+
     st.write("### Features:")
     st.write("- Simple input field")
     st.write("- Dynamic response")
