@@ -1,6 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+# Set page configuration
+st.set_page_config(page_title="Teams App", page_icon=":zap:", layout="wide")
 # Microsoft Teams SDK for authentication and integration
 teams_sdk = """
 <script src="https://res.cdn.office.net/teams-js/2.10.0/js/MicrosoftTeams.min.js"></script>
@@ -16,8 +18,7 @@ teams_sdk = """
 # Inject the Teams SDK script
 components.html(teams_sdk, height=0)
 
-# Set page configuration
-st.set_page_config(page_title="Teams App", page_icon=":zap:", layout="wide")
+
 
 st.title("Microsoft Teams Test App")
 st.write("This is a dummy app for testing Teams integration.")
